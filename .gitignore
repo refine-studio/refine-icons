@@ -1,0 +1,9 @@
+node_modules
+dist
+src/generated
+*.log
+.DS_Store
+.vite
+.claude/rules/refine/
+.claude/decisions
+.claude/scheduled_tasks.lock
