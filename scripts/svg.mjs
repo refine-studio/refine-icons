@@ -38,6 +38,9 @@ const parseAttributes = (source) => {
   );
 };
 
+/**
+ * Escapes a value for a double-quoted SVG attribute.
+ */
 const escapeAttribute = (value) => {
   return String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;');
 };

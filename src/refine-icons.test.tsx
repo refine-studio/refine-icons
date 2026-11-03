@@ -6,10 +6,11 @@ import { describe, expect, it } from 'vitest';
 import { RefineIconArrowDownLG, RefineIconBell, RefineIconHeartSolid } from './index';
 import { type IconName, REFINE_ICON_NAMES } from './names';
 
-type FixtureIcon = { viewBox: string; paths: Record<string, string | number>[] };
+interface FixtureIcon {
+  viewBox: string;
+  paths: Record<string, string | number>[];
+}
 
-// Refine UI's own path props at 1.75, written by scripts/import-refine-ui-icons.mjs from refine-ui's main.
-// Paths resolve from the package root, where vitest runs.
 const fixture = JSON.parse(readFileSync(resolve('test/refine-ui-icons.json'), 'utf8')) as Record<string, FixtureIcon>;
 
 /**
@@ -37,13 +38,13 @@ describe('Refine icons', () => {
     expect(svg?.getAttribute('width')).toBe('24');
   });
 
-  it('takes size, strokeWidth and className like a lucide icon', () => {
-    const { container } = render(<RefineIconArrowDownLG className="size-4" size={16} strokeWidth={1} />);
+  it('takes size, strokeWidth and any SVG prop like a lucide icon', () => {
+    const { container } = render(<RefineIconArrowDownLG id="arrow" size={16} strokeWidth={1} />);
     const svg = container.querySelector('svg');
 
     expect(svg?.getAttribute('stroke-width')).toBe('1');
     expect(svg?.getAttribute('width')).toBe('16');
-    expect(svg?.getAttribute('class')).toBe('size-4');
+    expect(svg?.getAttribute('id')).toBe('arrow');
     expect(svg?.getAttribute('data-icon')).toBe('Arrow_Down_LG');
     expect(svg?.getAttribute('data-slot')).toBe('icon');
   });

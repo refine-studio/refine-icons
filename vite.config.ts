@@ -14,7 +14,10 @@ export default defineConfig({
     minify: false,
     emptyOutDir: true,
     lib: {
-      entry: { index: 'src/index.ts', names: 'src/names.ts' },
+      entry: {
+        index: 'src/index.ts',
+        names: 'src/names.ts',
+      },
       formats: ['es'],
     },
     rolldownOptions: {
