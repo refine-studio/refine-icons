@@ -1,0 +1,68 @@
+{
+  "name": "@refine-studio/refine-icons",
+  "version": "0.1.0",
+  "description": "Refine icons: one drawing per icon, built into an SVG sprite and React icons.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refine-studio/refine-icons.git"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "icons"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./names": {
+      "types": "./dist/names.d.ts",
+      "import": "./dist/names.js"
+    },
+    "./sprite.svg": "./dist/sprite.svg",
+    "./icons/*.svg": "./icons/*.svg",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-icons.mjs",
+    "build": "pnpm generate && vite build && tsc -p tsconfig.build.json && cp src/generated/sprite.svg dist/sprite.svg",
+    "typecheck": "pnpm generate && tsc --noEmit",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "pnpm generate && vitest run",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.13.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
+    "jsdom": "30.1.3",
+    "prettier": "3.9.10",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.0",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}
