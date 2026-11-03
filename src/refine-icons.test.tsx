@@ -60,6 +60,10 @@ describe('Refine icons', () => {
     expect(REFINE_ICON_NAMES.Arrow_Down_LG).toBe(RefineIconArrowDownLG);
   });
 
+  it('has the icons Refine UI still takes from lucide', () => {
+    expect(Object.keys(REFINE_ICON_NAMES)).toEqual(expect.arrayContaining(['Sparkles', 'Diamond']));
+  });
+
   it.each(Object.entries(fixture))('draws %s at 1.75 exactly as Refine UI does', (name, { viewBox, paths }) => {
     const Icon = REFINE_ICON_NAMES[name as IconName];
     const { container: actual } = render(<Icon strokeWidth={1.75} />);

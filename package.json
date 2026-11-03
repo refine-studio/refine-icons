@@ -1,6 +1,6 @@
 {
   "name": "@refine-studio/refine-icons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Refine icons: one drawing per icon, built into an SVG sprite and React icons.",
   "license": "MIT",
   "repository": {
